@@ -1,0 +1,24 @@
+{
+    "name": "sensiolabs/doctrine-query-statistics-bundle",
+    "type": "symfony-bundle",
+    "description": "Adds a Profiler tab to gather statistics about Doctrine queries made during a request",
+    "keywords": ["doctrine","profiler"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dennis Benkert",
+            "email": "dennis.benkert@sensiolabs.de"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.1.*",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/doctrine-bundle": "1.0.*"
+    },
+    "autoload": {
+        "psr-0": { "SensioLabs\\FrameworkExtraBundle": "" }
+    },
+    "target-dir": "SensioLabs/FrameworkExtraBundle",
+    "minimum-stability": "dev"
+}
