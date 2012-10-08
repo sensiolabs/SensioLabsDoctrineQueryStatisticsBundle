@@ -14,7 +14,7 @@ Right now the bundle generates statistical information about:
 
 Add a requirement in your composer.json for the `sensiolabs/doctrine-query-statistics-bundle` package:
 
-            "sensiolabs/doctrine-query-statistics-bundle": "2.1.*"
+            "sensiolabs/doctrine-query-statistics-bundle": "*"
 
 Add the SensioLabsDoctrineQueryStatisticsBundle to your application's kernel:
 
