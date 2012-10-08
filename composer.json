@@ -17,8 +17,8 @@
         "doctrine/doctrine-bundle": "1.0.*"
     },
     "autoload": {
-        "psr-0": { "SensioLabs\\FrameworkExtraBundle": "" }
+        "psr-0": { "SensioLabs\\DoctrineQueryStatisticsBundle": "" }
     },
-    "target-dir": "SensioLabs/FrameworkExtraBundle",
+    "target-dir": "SensioLabs/DoctrineQueryStatisticsBundle",
     "minimum-stability": "dev"
 }
