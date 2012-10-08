@@ -1,0 +1,67 @@
+{% extends 'WebProfilerBundle:Profiler:layout.html.twig' %}
+
+{% block menu %}
+<span class="label">
+    <span class="icon"><img src="{{ asset('bundles/webprofiler/images/profiler/db.png') }}" alt="" /></span>
+    <strong>Doctrine Statistics</strong>
+</span>
+{% endblock %}
+
+{% block panel %}
+<h2>All Queries ({{ collector.queriesCount }})</h2>
+{% for connection, queries in collector.queries %}
+    <h3>Connection <em>{{ connection }}</em></h3>
+    <table>
+        <tr>
+            <th>SQL</th>
+            <th>Parameters</th>
+        </tr>
+
+        {% for query in queries %}
+        <tr>
+            <td>{{ query.sql }}</td>
+            <td>{{ query.params|yaml_encode }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endfor%}
+
+<h2>Identical Queries ({{ collector.identicalQueriesCount }})</h2>
+{% for connection, identicalQueries in collector.identicalQueries %}
+    <h3>Connection <em>{{ connection }}</em></h3>
+    <table>
+        <tr>
+            <th>Times called</th>
+            <th>SQL</th>
+            <th>Parameters</th>
+        </tr>
+
+        {% for identicalQuery in identicalQueries %}
+        <tr>
+            <td>{{ identicalQuery.count }}</td>
+            <td>{{ identicalQuery.sql }}</td>
+            <td>{{ identicalQuery.parameters|yaml_encode }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endfor%}
+
+<h2>Similar Queries ({{ collector.similarQueriesCount }})</h2>
+{% for connection, similarQueries in collector.similarQueries %}
+    <h3>Connection <em>{{ connection }}</em></h3>
+    <table>
+        <tr>
+            <th>Times called</th>
+            <th>SQL</th>
+        </tr>
+
+        {% for similarQuery in similarQueries %}
+            <tr>
+                <td>{{ similarQuery.count }}</td>
+                <td>{{ similarQuery.sql }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endfor%}
+
+{% endblock %}
