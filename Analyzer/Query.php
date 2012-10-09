@@ -43,9 +43,14 @@ class Query
         return $this->filterIndistinctQueries($groupedQueries);
     }
 
-    private function generateQueryKeyWithParameters($sql, array $parameters)
+    private function generateQueryKeyWithParameters($sql, $parameters)
     {
-        return $this->generateQueryKeyWithoutParameters($sql) . ':' . sha1(serialize($parameters));
+        $key = $this->generateQueryKeyWithoutParameters($sql);
+        if (is_array($parameters)) {
+            $key .= ':' . sha1(serialize($parameters));
+        }
+        
+        return $key;
     }
 
     private function generateQueryKeyWithoutParameters($sql)
