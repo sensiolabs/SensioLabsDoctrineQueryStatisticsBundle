@@ -4,7 +4,7 @@ namespace SensioLabs\DoctrineQueryStatisticsBundle\Analyzer;
 
 class Query
 {
-    private $queries;
+    private $queries = array();
 
     public function addQuery($sql, $parameters = array())
     {
